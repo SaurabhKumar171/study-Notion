@@ -9,6 +9,8 @@ const SignupForm = ({setIsLoggedIn}) => {
        const[formData , setFormData] = useState({firstName:"",lastName:"",email:"",password:"",confirmPassword:""});
 
        const [showPassword , setShowPassword] = useState(false);
+       const [showConfirmPassword , setShowConfirmPassword] = useState(false);
+
 
        const [accountType , setAccountType] = useState("student");
 
@@ -56,7 +58,7 @@ const SignupForm = ({setIsLoggedIn}) => {
                       onClick= { () => setAccountType("student")}>
                     Student
                  </button>
-                 
+
                  <button className={`${accountType=== "instructor"
                     ?
                     "text-richblack-5 bg-richblack-900":
@@ -142,7 +144,7 @@ const SignupForm = ({setIsLoggedIn}) => {
                             <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">
                                 Confirm Password<sup className="text-pink-200">*</sup>
                             </p>
-                            <input required type={showPassword ? ('text'):('password')}
+                            <input required type={showConfirmPassword ? ('text'):('password')}
                                     name="confirmPassword"
                                     value={formData.confirmPassword}
                                     onChange={changeHandler}
@@ -152,8 +154,8 @@ const SignupForm = ({setIsLoggedIn}) => {
 
                     <span
                      className="absolute right-3 mt-3 -mr-2 cursor-pointer"
-                     onClick={ () => setShowPassword(prev => !prev) }>
-                      {showPassword ? <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF"/> : <AiOutlineEye  fontSize={24} fill="#AFB2BF"/>}
+                     onClick={ () => setShowConfirmPassword(prevConf => !prevConf) }>
+                      {showConfirmPassword ? <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF"/> : <AiOutlineEye  fontSize={24} fill="#AFB2BF"/>}
                     </span>
 
 
